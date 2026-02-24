@@ -9,21 +9,31 @@ import CourseCard  from "@/components/CourseCard";
 import SplashScreen from "@/components/SplashScreen";
 import { useUser }  from "@/context/UserContext";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { useRouter } from "next/navigation";
 
 export default function HomePage() {
   const { user } = useUser();
+const router = useRouter();
   const [hasSeenSplash, setHasSeenSplash] = useLocalStorage("quiz-seen-splash", false);
   const [showSplash, setShowSplash] = useState(false);
 
-  useEffect(() => {
-    if (!hasSeenSplash) setShowSplash(true);
-  }, []); // eslint-disable-line
+useEffect(() => {
+    // 1. Show splash if never seen
+    if (!hasSeenSplash) {
+      setShowSplash(true);
+    }
+
+    // 2. Redirect to onboarding if they are still the default mock user
+    if (user && user.name === "Mock User") {
+      router.push("/onboarding");
+    }
+  }, [user, router, hasSeenSplash]); // ✅ Added hasSeenSplash to dependencies
 
   const handleSplashDone = () => {
     setShowSplash(false);
     setHasSeenSplash(true);
   };
-
+  
   const modes = [
     { href: "/speedrun",    icon: Zap,      label: "Speed Run",   desc: "Race against the clock",  color: "#f59e0b" },
     { href: "/flashcards",  icon: Layers,   label: "Flashcards",  desc: "Study mode with flip cards", color: "#6366f1" },

@@ -58,7 +58,7 @@ export default function SplashScreen({ onComplete }: Props) {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="font-display text-6xl font-black text-ink"
           >
-            Quiz<span className="text-accent">OS</span>
+            S_Fada<span className="text-accent">TestBrain</span>
           </motion.h1>
 
           {/* Tagline */}

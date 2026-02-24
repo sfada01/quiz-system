@@ -30,13 +30,13 @@ export default function Navbar() {
            aria-label="Main navigation">
 
         {/* Logo */}
-        <Link href="/" aria-label="S_Fada home"
+        <Link href="/" aria-label="QuizOS home"
               className="flex items-center gap-2 font-display text-lg font-bold tracking-tight
                          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-surface-0">
             <Brain size={18} strokeWidth={2.5} />
           </span>
-          <span className="hidden sm:inline">Quiz<span className="text-accent">OS</span></span>
+          <span className="hidden sm:inline">S_Fada <span className="text-accent">TestBrain</span></span>
         </Link>
 
         {/* Nav links */}
