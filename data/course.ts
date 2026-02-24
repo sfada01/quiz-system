@@ -34,7 +34,7 @@ export const COURSES: Course[] = [
         correctIndex: 3 },
       { id: "m7",  question: "Solve: 2x + 5 = 17",
         options: ["x = 6", "x = 7", "x = 5", "x = 11"],
-        correctIndex: 2, explanation: "2x = 12 → x = 6." },
+        correctIndex: 0, explanation: "2x = 12 → x = 6." },
       { id: "m8",  question: "State the Pythagorean theorem.",
         options: ["a² + b² = c²", "a + b = c", "a² − b² = c²", "2a + 2b = c"],
         correctIndex: 3 },
