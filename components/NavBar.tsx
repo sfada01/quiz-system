@@ -30,7 +30,7 @@ export default function Navbar() {
            aria-label="Main navigation">
 
         {/* Logo */}
-        <Link href="/" aria-label="QuizOS home"
+        <Link href="/" aria-label="S_Fada home"
               className="flex items-center gap-2 font-display text-lg font-bold tracking-tight
                          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-surface-0">

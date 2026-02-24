@@ -4,7 +4,8 @@ import {
   createContext, useContext, useState,
   useCallback, useEffect, useRef, ReactNode,
 } from "react";
-import { AnswerMap, QuizSession } from "@/types";
+
+import { AnswerMap, QuizSession, QuizMode } from "@/types"; 
 
 interface QuizContextValue {
   session: QuizSession | null;
@@ -53,12 +54,20 @@ export function QuizProvider({ children }: { children: ReactNode }) {
   }, [currentIndex, timerEnabled]);
 
   /* ── Actions ────────────────────────────────────────────── */
-  const startQuiz = useCallback((courseId: string, total: number) => {
-    setSession({ courseId, answers: {}, score: 0,
-      totalQuestions: total, completed: false, startedAt: Date.now() });
-    setCurrentIndex(0);
-    setSecondsLeft(QUESTION_SECS);
-  }, []);
+  // Update the startQuiz function in QuizProvider
+const startQuiz = useCallback((courseId: string, total: number, mode: 'practice' | 'exam' = 'practice') => {
+  setSession({ 
+    courseId, 
+    answers: {}, 
+    score: 0,
+    totalQuestions: total, 
+    completed: false, 
+    startedAt: Date.now(),
+   mode: mode as QuizMode,
+  });
+  setCurrentIndex(0);
+  setSecondsLeft(QUESTION_SECS);
+}, []);
 
   const recordAnswer = useCallback(
     (questionId: string, chosen: number, correct: boolean) => {
