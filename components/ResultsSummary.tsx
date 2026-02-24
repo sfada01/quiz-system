@@ -100,7 +100,8 @@ export default function ResultsSummary({ course, answers, score, onRetry }: Prop
                 {!correct && (
                   <p className="mt-1 text-xs text-ink-muted">
                     <span className="text-red-400">Your answer: </span>
-                    {chosen !== undefined ? q.options[chosen] : "Not answered"}
+                    // Change line 103 to:
+{chosen !== undefined ? q.options[chosen as number] : "Not answered"}
                     <span className="mx-2 text-ink-faint">·</span>
                     <span className="text-emerald-400">Correct: </span>
                     {q.options[q.correctIndex]}
